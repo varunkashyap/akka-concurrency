@@ -4,8 +4,9 @@ import akka.actor.{Actor, Props, ActorSystem}
 
 class HindiActor extends Actor {
   def receive = {
+    // General strings as messages? Actor anti-pattern
     case "Good Morning" =>
-      println ("Actor: Shubh Prabhat")
+      println ("Actor: Shubh Prabhat") // Do some actual work here
     case "How are you?" =>
       println ("Actor: Main theek hun, aap kaise ho?")
   }
@@ -18,7 +19,7 @@ object HindiActorMain {
   def send(msg: String) = {
     println(s"Me: $msg")
     actor ! msg
-    Thread.sleep(100)
+    Thread.sleep(100) // actor anti-pattern
   }
 
   def main(args: Array[String]) {
